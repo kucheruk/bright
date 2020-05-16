@@ -46,9 +46,10 @@ namespace bright.Actors
         {
             var state = await _getState.GetAsync();
             var rescanDelay = _cfg.Value.GitlabScanInterval ?? Constants.DefaultGitlabScanInterval;
-            if (state.LastScanTime + rescanDelay > DateTime.Now)
+            var lastScan = state.LastScanTime ?? DateTime.MinValue;
+            if (lastScan + rescanDelay < DateTime.Now)
             {
-                _logger.LogInformation("Time for new scan! {lastScan}", state.LastScanTime);
+                _logger.LogInformation("Time for new scan! {lastScan}", lastScan);
                 var projects = await _gitlab.GetProjectsAsync();
                 var projectsToStore = projects.Select(_dbMapper.Map);
                 _logger.LogInformation("Got information about {count} projects from gitlab", projects.Count);

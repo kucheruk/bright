@@ -1,4 +1,3 @@
-using System;
 using bright.Data.Models;
 using GitLabApiClient.Models.Projects.Requests;
 using GitLabApiClient.Models.Projects.Responses;
@@ -9,6 +8,10 @@ namespace bright.Data
     {
         public GitlabLinks Map(Links l)
         {
+            if (l == null)
+            {
+                return null;
+            }
             return new GitlabLinks
             {
                 Events = l.Events,
@@ -73,11 +76,27 @@ namespace bright.Data
 
         private GitlabStatistics Map(Statistics s)
         {
-            throw new NotImplementedException();
+            if (s == null)
+            {
+                return null;
+            }
+
+            return new GitlabStatistics
+            {
+                CommitCount = s.CommitCount,
+                RepositorySize = s.RepositorySize,
+                StorageSize = s.StorageSize,
+                JobArtifactsSize = s.JobArtifactsSize,
+                LfsObjectsSize = s.LfsObjectsSize
+            };
         }
 
         private GitlabPermissions Map(Permissions p)
         {
+            if (p == null)
+            {
+                return null;
+            }
             return new GitlabPermissions
             {
                 GroupAccess = Map(p.GroupAccess),
@@ -87,6 +106,10 @@ namespace bright.Data
 
         private GitlabAccess Map(Access a)
         {
+            if (a == null)
+            {
+                return null;
+            }
             return new GitlabAccess
             {
                 AccessLevel = a.AccessLevel,
@@ -96,6 +119,11 @@ namespace bright.Data
 
         private GitlabOwner Map(Owner o)
         {
+            if (o == null)
+            {
+                return null;
+            }
+
             return new GitlabOwner
             {
                 Id = o.Id,
@@ -106,6 +134,10 @@ namespace bright.Data
 
         private GitlabNamespace Map(Namespace n)
         {
+            if (n == null)
+            {
+                return null;
+            }
             return new GitlabNamespace
             {
                 Id = n.Id,

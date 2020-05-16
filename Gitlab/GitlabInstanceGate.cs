@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using bright.Config;
 using GitLabApiClient;
@@ -30,7 +31,19 @@ namespace bright.Gitlab
 
         public async Task<File> FindFile(int projectId, string filePath)
         {
-            return await _gc.Files.GetAsync(projectId, filePath);
+            try
+            {
+                return await _gc.Files.GetAsync(projectId, filePath);
+            }
+            catch (GitLabException g)
+            {
+                if (g.HttpStatusCode == HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+
+                throw;
+            }
         }
     }
 }

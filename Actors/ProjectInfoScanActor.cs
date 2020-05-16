@@ -26,7 +26,10 @@ namespace bright.Actors
         private async Task ScanProject(GitlabProject arg)
         {
             var file = await _gitlab.FindFile(arg.Id, _cfg.Value.ProjectDefinitionFileName);
-            _psa.LogInformation("Got file info? {File}", JsonConvert.SerializeObject(file));
+            if (file != null)
+            {
+                _psa.LogInformation("Got file info? {File}", JsonConvert.SerializeObject(file));
+            }
         }
     }
 }
