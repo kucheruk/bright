@@ -1,9 +1,9 @@
 using System;
-using bright.Data;
+using bright.Data.Models;
 using GitLabApiClient.Models.Projects.Requests;
 using GitLabApiClient.Models.Projects.Responses;
 
-namespace bright
+namespace bright.Data
 {
     public class DbModelsMapper
     {

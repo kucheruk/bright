@@ -3,7 +3,7 @@ using Akka.Actor;
 using Akka.DI.Core;
 using Akka.Pattern;
 
-namespace bright
+namespace bright.Actors
 {
     public static class ActorExtensions
     {

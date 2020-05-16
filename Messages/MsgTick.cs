@@ -1,4 +1,4 @@
-namespace bright
+namespace bright.Messages
 {
     public class MsgTick
     {

@@ -1,3 +1,5 @@
+using bright.Config;
+using bright.Data.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 

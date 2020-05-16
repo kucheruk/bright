@@ -2,12 +2,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.DI.Core;
+using bright.Config;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace bright
+namespace bright.Actors
 {
     public class ActorsHostService : IHostedService
     {

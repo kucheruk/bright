@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
 using Akka.Actor;
-using bright.Data;
+using bright.Config;
+using bright.Data.Models;
+using bright.Gitlab;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace bright
+namespace bright.Actors
 {
     public class ProjectInfoScanActor : ReceiveActor
     {

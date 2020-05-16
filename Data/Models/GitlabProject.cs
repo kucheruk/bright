@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using GitLabApiClient.Models.Projects.Responses;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace bright.Data
+namespace bright.Data.Models
 {
     public class GitlabProject
     {

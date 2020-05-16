@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace bright
+namespace bright.Data.Models
 {
     [BsonIgnoreExtraElements]
     public class GitlabLinks

@@ -1,16 +1,17 @@
 using System.Threading.Tasks;
-using bright.Data;
+using bright.Config;
+using bright.Data.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace bright
+namespace bright.Data.Commands
 {
-    public class AppStateSaveQuery
+    public class AppStateSaveCommand
     {
         private readonly IOptions<AppConfig> _cfg;
         private readonly MongoStore _ms;
 
-        public AppStateSaveQuery(IOptions<AppConfig> cfg, MongoStore ms)
+        public AppStateSaveCommand(IOptions<AppConfig> cfg, MongoStore ms)
         {
             _cfg = cfg;
             _ms = ms;

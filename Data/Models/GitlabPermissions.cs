@@ -1,6 +1,4 @@
-using GitLabApiClient.Models.Projects.Responses;
-
-namespace bright
+namespace bright.Data.Models
 {
     public class GitlabPermissions
     {

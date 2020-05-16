@@ -4,10 +4,16 @@ using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.DI.Core;
 using Akka.Routing;
+using bright.Config;
+using bright.Data;
+using bright.Data.Commands;
+using bright.Data.Queries;
+using bright.Gitlab;
+using bright.Messages;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace bright
+namespace bright.Actors
 {
     public class GitlabProjectsScannerActor : ReceiveActor
     {
@@ -16,13 +22,13 @@ namespace bright
         private readonly AppStateGetQuery _getState;
         private readonly GitlabInstanceGate _gitlab;
         private readonly ILogger<GitlabProjectsScannerActor> _logger;
-        private readonly AppStateSaveQuery _saveState;
+        private readonly AppStateSaveCommand _saveState;
         private ICancelable _cancellable;
         private IActorRef _scanners;
 
         public GitlabProjectsScannerActor(IOptions<AppConfig> cfg,
             AppStateGetQuery getState,
-            AppStateSaveQuery saveState,
+            AppStateSaveCommand saveState,
             GitlabInstanceGate gitlab,
             ILogger<GitlabProjectsScannerActor> logger,
             DbModelsMapper dbMapper)

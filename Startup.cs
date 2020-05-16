@@ -1,4 +1,7 @@
+using bright.Actors;
+using bright.Config;
 using bright.Data;
+using bright.Gitlab;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

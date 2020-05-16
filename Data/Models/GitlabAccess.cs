@@ -1,4 +1,4 @@
-namespace bright
+namespace bright.Data.Models
 {
     public class GitlabAccess
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace bright
+namespace bright.Config
 {
     public class AppConfig
     {

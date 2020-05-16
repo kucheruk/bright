@@ -1,9 +1,10 @@
 using System.Threading.Tasks;
-using bright.Data;
+using bright.Config;
+using bright.Data.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace bright
+namespace bright.Data.Queries
 {
     public class AppStateGetQuery
     {

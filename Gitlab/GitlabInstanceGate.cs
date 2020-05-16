@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using bright.Config;
 using GitLabApiClient;
 using GitLabApiClient.Models.Files.Responses;
 using GitLabApiClient.Models.Projects.Requests;
 using GitLabApiClient.Models.Projects.Responses;
 using Microsoft.Extensions.Options;
 
-namespace bright
+namespace bright.Gitlab
 {
     public class GitlabInstanceGate
     {

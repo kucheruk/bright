@@ -1,6 +1,6 @@
 using Akka.Actor;
 
-namespace bright
+namespace bright.Actors
 {
     public class BrightSupervisor : ReceiveActor
     {

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace bright
+namespace bright.Gitlab
 {
     public static class GitlabExtensions
     {
