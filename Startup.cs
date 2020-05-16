@@ -1,3 +1,4 @@
+using bright.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +21,12 @@ namespace bright
         {
             services.Configure<AppConfig>(Configuration);
             services.AddRazorPages();
+            services.AddMongoStorage();
+            services.AddAppState();
+            services.AddGitlab();
+            services.AddTransient<BrightSupervisor>();
+            services.AddTransient<GitlabProjectsScannerActor>();
+            services.AddTransient<ProjectInfoScanActor>();
             services.AddSingleton<IHostedService, ActorsHostService>();
         }
 

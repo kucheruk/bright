@@ -2,8 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.DI.Core;
-using GitLabApiClient;
-using GitLabApiClient.Models.Projects.Requests;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -23,13 +21,6 @@ namespace bright
         {
             _scopeFactory = scopeFactory;
             _logger = logger;
-            var gc = new GitLabClient(cfg.Value.GitlabUrl, cfg.Value.GitlabToken);
-            var p = gc.Projects.GetAsync(a =>
-            {
-                a.Archived = false;
-                a.Order = ProjectsOrder.LastActivityAt;
-                a.IncludeStatistics = true;
-            }).Result;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
