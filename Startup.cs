@@ -25,6 +25,8 @@ namespace bright
             services.Configure<AppConfig>(Configuration);
             services.AddRazorPages();
             services.AddMongoStorage();
+            services.AddFileParsers();
+            services.AddProjectMeta();
             services.AddAppState();
             services.AddGitlab();
             services.AddTransient<BrightSupervisor>();

@@ -19,7 +19,11 @@ namespace bright.Data.Commands
 
         public async Task SaveAsync(AppState state)
         {
-            await _ms.App.ReplaceOneAsync(Builders<AppState>.Filter.Eq(a => a.Id, _cfg.Value.AppInstance), state);
+            await _ms.App.ReplaceOneAsync(Builders<AppState>.Filter.Eq(a => a.Id, _cfg.Value.AppInstance), state,
+                new ReplaceOptions
+                {
+                    IsUpsert = true
+                });
         }
     }
 }

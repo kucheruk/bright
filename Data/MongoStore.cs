@@ -1,3 +1,4 @@
+using bright.Actors;
 using bright.Config;
 using bright.Data.Models;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,7 @@ namespace bright.Data
             _mc = new MongoClient(cfg.Value.MongoConnectionString);
             Db = _mc.GetDatabase("bright" + cfg.Value.MongoDbSuffix);
             Projects = GetCollection<GitlabProject>("projects");
+            ProjectMeta = GetCollection<ProjectMetaData>("meta");
             App = GetCollection<AppState>("appState");
         }
 
@@ -23,5 +25,6 @@ namespace bright.Data
 
         public IMongoCollection<GitlabProject> Projects { get; }
         public IMongoCollection<AppState> App { get; set; }
+        public IMongoCollection<ProjectMetaData> ProjectMeta { get; set; }
     }
 }

@@ -3,9 +3,11 @@ using System.Net;
 using System.Threading.Tasks;
 using bright.Config;
 using GitLabApiClient;
+using GitLabApiClient.Internal.Paths;
 using GitLabApiClient.Models.Files.Responses;
 using GitLabApiClient.Models.Projects.Requests;
 using GitLabApiClient.Models.Projects.Responses;
+using GitLabApiClient.Models.Trees.Responses;
 using Microsoft.Extensions.Options;
 
 namespace bright.Gitlab
@@ -44,6 +46,20 @@ namespace bright.Gitlab
 
                 throw;
             }
+        }
+
+        public async Task<IList<Tree>> GetProjectTree(int argId)
+        {
+            var tree = await _gc.Trees.GetAsync(argId, a =>
+            {
+                a.Recursive = true;
+            });
+            return tree;
+        }
+
+        public async Task<File> GetFileContentAsync(ProjectId pid, string fullPath)
+        {
+            return await _gc.Files.GetAsync(pid, fullPath);
         }
     }
 }
